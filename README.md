@@ -12,6 +12,7 @@ Android App that intruduce a full program for beeing fit.
 </br>7 - Book
 </br>
 ## Technologies
+</br>
 </br>1 - Java
 </br>2 - Firebase Database
 </br>3 - OneSignal
