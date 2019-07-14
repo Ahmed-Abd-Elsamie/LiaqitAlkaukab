@@ -19,3 +19,7 @@ Android App that intruduce a full program for beeing fit.
 </br>5 - hdodenhof (CircleImageView)
 </br>6 - Facebook SignIn
 </br>7 - Google SignIn
+
+</br>
+</br>
+
