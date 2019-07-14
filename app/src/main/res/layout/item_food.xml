@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp"
+    android:layout_gravity="right"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+
+        >
+
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_mode_edit_black_24dp"
+            android:background="@drawable/btn_edit"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="تعديل"
+            android:textColor="#fff"
+            android:layout_margin="8dp"
+            android:id="@+id/btn_edit_food"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/cairoblack"
+
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_close_black_24dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            android:id="@+id/img_food_state"
+
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:gravity="right"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_margin="5dp"
+                android:id="@+id/food_carb"
+                android:textSize="15dp"
+                android:fontFamily="@font/cairoblack"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_margin="5dp"
+                android:id="@+id/food_protin"
+                android:textSize="15dp"
+                android:fontFamily="@font/cairoblack"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_margin="5dp"
+                android:id="@+id/food_fats"
+                android:textSize="15dp"
+                android:fontFamily="@font/cairoblack"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_margin="5dp"
+                android:id="@+id/food_aliaf"
+                android:textSize="15dp"
+                android:fontFamily="@font/cairoblack"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="05:32 AM"
+                android:layout_margin="5dp"
+                android:id="@+id/food_time"
+                android:textSize="18dp"
+
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</android.support.v7.widget.CardView>

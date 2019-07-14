@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/card"
+    app:cardCornerRadius="9dp"
+    android:layout_margin="5dp"
+
+    >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/item_container"
+
+
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+
+                >
+                <com.github.clans.fab.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_mode_edit_black_24dp"
+                    app:fab_colorNormal="#6f7083"
+                    android:id="@+id/fab_edit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:clickable="false"
+                    android:visibility="gone"
+                    app:fab_size="mini"
+
+                    />
+                <com.github.clans.fab.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_remove_circle_black_24dp"
+                    app:fab_colorNormal="#6f7083"
+                    android:id="@+id/fab_del"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:clickable="false"
+                    android:visibility="gone"
+                    app:fab_size="mini"
+
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="right"
+
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="وصفات طعام"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/cairoblack"
+                        android:id="@+id/post_type"
+
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8hrs"
+                        android:id="@+id/post_date"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="5dp"
+
+                        />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+
+                >
+
+                <ImageView
+                    android:id="@+id/post_img"
+                    android:layout_width="250dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+
+                    />
+                <com.google.android.youtube.player.YouTubeThumbnailView
+                    android:layout_width="250dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/youtubeVid"
+                    android:layout_weight="2"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="3"
+
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:layout_margin="10dp"
+                        android:text="مرحبا بكم جميعا"
+                        android:fontFamily="@font/cairoblack"
+                        android:id="@+id/post_title"
+                        android:layout_gravity="right"
+
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="بعض التفاصيل عن الموضوع"
+                        android:textSize="13dp"
+                        android:layout_gravity="right"
+                        android:id="@+id/post_desc"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/cairoblack"
+                        android:maxLines="3"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="اقرا المذيد..."
+                        android:textSize="15dp"
+                        android:layout_gravity="right"
+                        android:id="@+id/post_read_more"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/baloo"
+                        android:textColor="#031996"
+                        android:layout_marginBottom="10dp"
+
+                        />
+
+
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#6c6a6a"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/separator"
+                android:orientation="vertical"
+                android:visibility="gone"
+
+                >
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+
+
+                >
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_thumb_up_black_24dp"
+                    android:text="اعجبني"
+                    android:fontFamily="@font/cairoblack"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:id="@+id/btn_like"
+                    android:paddingLeft="50dp"
+
+                    />
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_message_whit_24dp"
+                    android:text="تعليق"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:id="@+id/btn_comment"
+                    android:paddingLeft="10dp"
+                    android:fontFamily="@font/cairoblack"
+
+                    />
+
+                <!--
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_share_gray"
+                    android:text="مشاركه"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:id="@+id/btn_share"
+                    android:paddingLeft="10dp"
+                    android:fontFamily="@font/cairoblack"
+
+                    />
+
+
+                    !-->
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#9c9999"
+                android:visibility="gone"
+                android:id="@+id/comment_layout"
+
+                >
+
+                <include
+                    layout="@layout/item_comment"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+</android.support.v7.widget.CardView>

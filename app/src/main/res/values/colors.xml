@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#910a06</color>
+    <color name="colorPrimaryLight">#ba2823</color>
+    <color name="colorPrimaryDark">#830905</color>
+    <color name="colorAccent">#cfcdcd</color>
+    <color name="colorFAB1">#2196F3</color>
+    <color name="colorFAB2">#E040FB</color>
+    <color name="colorGray">#FF747474</color>
+    <color name="colorLightGray">#f7f7f7</color>
+    <color name="colorMale">#2C2C2C</color>
+    <color name="colorFemale">#887F7F</color>
+    <color name="colorSetAlarm">#33AF38</color>
+    <color name="colorStopAlarm">#E03C31</color>
+    <color name="colorDefaultAlarm">#887F7F</color>
+
+    <color name="waterColorDark">#C0AC0E</color>
+    <color name="waterColorMid">#DFCA31</color>
+    <color name="waterColorLight">#ECDD88</color>
+
+
+</resources>

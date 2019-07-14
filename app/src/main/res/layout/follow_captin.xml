@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="يمكنك متابعتي علي "
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:fontFamily="@font/cairoblack"
+        android:textColor="#fff"
+        android:textSize="20dp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+
+
+        >
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/insta"
+            android:layout_margin="10dp"
+            android:id="@+id/btnInst"
+
+            />
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/facebook"
+            android:layout_margin="10dp"
+            android:id="@+id/btnFace"
+
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+
+        >
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/whatsapp"
+            android:layout_margin="10dp"
+            android:id="@+id/btnWhats"
+
+            />
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/tweeter"
+            android:layout_margin="10dp"
+            android:id="@+id/btnTweet"
+
+            />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:background="@drawable/youtube"
+            android:layout_margin="10dp"
+            android:id="@+id/btnYoutube"
+
+            />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

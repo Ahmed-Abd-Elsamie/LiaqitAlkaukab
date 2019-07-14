@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="معلوماتك الصحيه"
+        android:gravity="right"
+        android:layout_margin="10dp"
+        android:textSize="25dp"
+        android:fontFamily="@font/cairoblack"
+
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="نسبه المياه %"
+        android:layout_gravity="center"
+        android:fontFamily="@font/cairoblack"
+        android:textSize="20dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="85 %"
+        android:layout_gravity="center"
+        android:fontFamily="@font/cairoblack"
+        android:textSize="60dp"
+        android:id="@+id/txt_water_percent"
+        android:gravity="center"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="جسمك لسه محتاج ميه"
+        android:layout_gravity="center"
+        android:fontFamily="@font/cairoblack"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:id="@+id/txt_body_state"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تحتاج الي شرب 2 لتر من الماء يوميا"
+        android:layout_gravity="center"
+        android:fontFamily="@font/cairoblack"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:id="@+id/txt_water_needs"
+
+        />
+
+
+</LinearLayout>

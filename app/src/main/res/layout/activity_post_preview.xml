@@ -1,0 +1,109 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.PostPreview"
+    android:background="@color/colorPrimaryLight"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/08/2019"
+            android:textSize="13dp"
+            android:layout_gravity="right"
+            android:id="@+id/post_date"
+            android:fontFamily="@font/baloo"
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الشباب والرياضه"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="right"
+            android:fontFamily="@font/cairoblack"
+            android:textColor="#fff"
+            android:id="@+id/post_title"
+            android:textSize="20dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="بعض التفاصيل عن الموضوع"
+            android:textSize="13dp"
+            android:layout_gravity="right"
+            android:id="@+id/post_desc"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/cairoblack"
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+
+
+            />
+
+        <com.google.android.youtube.player.YouTubeThumbnailView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/video_preview"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_ondemand_video_black_24dp"
+            android:background="@color/colorPrimaryDark"
+            android:fontFamily="@font/cairoblack"
+            android:textColor="#fff"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:text="شاهد الفيديو"
+            android:id="@+id/btn_video"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+
+            />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/minimg"
+            android:id="@+id/post_img"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+
+            />
+
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>

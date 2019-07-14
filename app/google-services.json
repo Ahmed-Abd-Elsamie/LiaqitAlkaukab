@@ -1,0 +1,122 @@
+{
+  "project_info": {
+    "project_number": "738151235302",
+    "firebase_url": "https://fitkeke-a545f.firebaseio.com",
+    "project_id": "fitkeke-a545f",
+    "storage_bucket": "fitkeke-a545f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738151235302:android:5219e42c29901926",
+        "android_client_info": {
+          "package_name": "com.fitkeke.root.socialapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738151235302-flora8m384nk4quer82o5i8rbikvujr6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fitkeke.root.socialapp",
+            "certificate_hash": "c29f9185a4009f84029965c32aa86e0bb6edf53d"
+          }
+        },
+        {
+          "client_id": "738151235302-sektvmurkte8qertrmlnjn7mbto4oen7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGm2aHvoURT7gSp-LTg-wOXBKBARF_FQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738151235302-sektvmurkte8qertrmlnjn7mbto4oen7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738151235302:android:97fc00ae50e2156b",
+        "android_client_info": {
+          "package_name": "com.fitkeke.root.socialapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738151235302-ish57d68h4nikuus53gn8jerp10dm1nk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fitkeke.root.socialapp",
+            "certificate_hash": "c29f9185a4009f84029965c32aa86e0bb6edf53d"
+          }
+        },
+        {
+          "client_id": "738151235302-sektvmurkte8qertrmlnjn7mbto4oen7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGm2aHvoURT7gSp-LTg-wOXBKBARF_FQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738151235302-sektvmurkte8qertrmlnjn7mbto4oen7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738151235302:android:7df2a81721bb3449",
+        "android_client_info": {
+          "package_name": "com.fitkeke.root.socialapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738151235302-23sqr2nutqls82p2o6pkumr6c5qlg52f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fitkeke.root.socialapp",
+            "certificate_hash": "c29f9185a4009f84029965c32aa86e0bb6edf53d"
+          }
+        },
+        {
+          "client_id": "738151235302-sektvmurkte8qertrmlnjn7mbto4oen7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGm2aHvoURT7gSp-LTg-wOXBKBARF_FQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738151235302-sektvmurkte8qertrmlnjn7mbto4oen7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="دعنا نتعرف قليلا"
+        android:fontFamily="@font/cairoblack"
+        android:textSize="20dp"
+        android:id="@+id/txt_welcome"
+        android:layout_margin="8dp"
+
+        />
+
+    <android.support.design.widget.TextInputEditText
+        android:padding="10dp"
+        android:id="@+id/txt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/input_text"
+        android:textColor="@color/colorPrimaryDark"
+        android:hint="الاسم..."
+        android:fontFamily="@font/cairoblack"
+
+
+
+        />
+
+    <android.support.design.widget.TextInputEditText
+        android:padding="10dp"
+        android:id="@+id/txt_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/input_text"
+        android:textColor="@color/colorPrimaryDark"
+        android:hint="السن..."
+        android:fontFamily="@font/cairoblack"
+        android:visibility="gone"
+
+
+
+        />
+
+    <android.support.design.widget.TextInputEditText
+        android:padding="10dp"
+        android:id="@+id/txt_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/input_text"
+        android:textColor="@color/colorPrimaryDark"
+        android:hint="الطول..."
+        android:fontFamily="@font/cairoblack"
+        android:visibility="gone"
+
+
+
+        />
+    <android.support.design.widget.TextInputEditText
+        android:padding="10dp"
+        android:id="@+id/txt_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/input_text"
+        android:textColor="@color/colorPrimaryDark"
+        android:hint="الوزن..."
+        android:fontFamily="@font/cairoblack"
+        android:visibility="gone"
+
+    />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تابع"
+        android:fontFamily="@font/cairoblack"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:layout_margin="8dp"
+        android:id="@+id/btn_next"
+
+
+        />
+
+</LinearLayout>

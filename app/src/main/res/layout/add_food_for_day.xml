@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+
+        >
+
+        <TimePicker
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/time_pick"
+
+            />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_food_day_carb"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="كربوهيدرات"
+            android:layout_gravity="right"
+            android:gravity="right"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_food_day_protin"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="بروتينات"
+            android:layout_gravity="right"
+            android:gravity="right"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_food_day_fats"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="دهون"
+            android:layout_gravity="right"
+            android:gravity="right"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_food_day_aliaf"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="الياف"
+            android:layout_gravity="right"
+            android:gravity="right"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+
+            >
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="حفظ"
+                android:id="@+id/btn_add_food_dialog"
+                android:background="@drawable/btn_edit"
+                android:textColor="#fff"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/cairoblack"
+
+                />
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="حذف"
+                android:id="@+id/btn_del_food_dialog"
+                android:background="@drawable/btn_edit"
+                android:textColor="#fff"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/cairoblack"
+
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

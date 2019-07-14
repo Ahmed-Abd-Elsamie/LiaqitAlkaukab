@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#B95B5B"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/water_glass"
+
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+
+            >
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/bg_btns"
+                android:padding="10dp"
+
+                >
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="ذكر"
+                    android:textColor="#fff"
+                    android:fontFamily="@font/cairoblack"
+                    android:id="@+id/btn_male"
+                    android:background="@drawable/btn_edit"
+
+                    />
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="انثي"
+                    android:textColor="#fff"
+                    android:fontFamily="@font/cairoblack"
+                    android:id="@+id/btn_female"
+                    android:background="@drawable/bg_btns"
+
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                >
+
+                <EditText
+                    android:padding="10dp"
+                    android:id="@+id/txt_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:inputType="number"
+                    android:background="@drawable/input_text"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:hint="الطول ..."
+                    android:fontFamily="@font/cairoblack"
+
+                    />
+
+                <EditText
+                    android:padding="10dp"
+                    android:id="@+id/txt_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:inputType="number"
+                    android:background="@drawable/input_text"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:hint="الوزن ...."
+                    android:digits=".0123456789"
+                    android:fontFamily="@font/cairoblack"
+
+                    />
+
+                <EditText
+                    android:padding="10dp"
+                    android:id="@+id/txt_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:inputType="number"
+                    android:background="@drawable/input_text"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:hint="سنك ...."
+                    android:digits=".0123456789"
+                    android:fontFamily="@font/cairoblack"
+
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+
+        >
+
+
+
+    </LinearLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="احسب"
+            android:textColor="#fff"
+            android:fontFamily="@font/cairoblack"
+            android:background="@drawable/btn_edit"
+            android:id="@+id/btn_result"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:fontFamily="@font/cairoblack"
+        android:textSize="20dp"
+        android:id="@+id/result"
+
+        />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تشغيل / ايقاف التنبيه لشرب الماء    "
+            android:fontFamily="@font/cairoblack"
+            android:id="@+id/btn_water_alarm"
+            android:drawableLeft="@drawable/ic_alarm_black_24dp"
+            android:background="@drawable/btn_edit"
+            android:textColor="#fff"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+
+            />
+
+    </LinearLayout>
+
+
+
+</ScrollView>
