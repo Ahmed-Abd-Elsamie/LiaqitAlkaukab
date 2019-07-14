@@ -1,7 +1,9 @@
 # FitnessPlanet
 Android App that intruduce a full program for beeing fit.
 </br>
+
 ## User Features
+
 </br>
 </br>1 - Body Health Part (Recipes - Supplimentries - Articles - Calories)
 </br>2 - Following Programs Online
@@ -11,7 +13,9 @@ Android App that intruduce a full program for beeing fit.
 </br>6 - Gym (Comming soon)
 </br>7 - Book
 </br>
+
 ## Technologies
+
 </br>
 </br>1 - Java
 </br>2 - Firebase Database
@@ -20,7 +24,4 @@ Android App that intruduce a full program for beeing fit.
 </br>5 - hdodenhof (CircleImageView)
 </br>6 - Facebook SignIn
 </br>7 - Google SignIn
-
 </br>
-</br>
-
