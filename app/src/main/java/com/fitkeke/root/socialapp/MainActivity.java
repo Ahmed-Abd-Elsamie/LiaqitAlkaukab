@@ -12,17 +12,25 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.fitkeke.root.socialapp.activities.AddFoodDay;
+import com.fitkeke.root.socialapp.activities.FoodProgramActivity;
 import com.fitkeke.root.socialapp.activities.Login;
 import com.fitkeke.root.socialapp.activities.UserProfile;
+import com.fitkeke.root.socialapp.activities.WaterProgramActivity;
 import com.fitkeke.root.socialapp.activities.body_health.BodyHealth;
 import com.fitkeke.root.socialapp.activities.general_articles.GeneralArticles;
 import com.fitkeke.root.socialapp.activities.online_programs.OnlinePrograms;
+import com.fitkeke.root.socialapp.admin.Dashboard;
+import com.github.clans.fab.FloatingActionButton;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubeThumbnailLoader;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.onesignal.OneSignal;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -33,21 +41,13 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference reference;
     private String uid;
     private FirebaseUser user;
-    private LinearLayout btnSports;
-    private LinearLayout btnHealth;
-    private LinearLayout btnMyBook;
+
     private LinearLayout btnFollow;
-    private LinearLayout btnOnline;
-    private LinearLayout btnArticles;
+
+    private LinearLayout btnMainMenu;
     private CircleImageView btnProfile;
+    private FloatingActionButton btnDashboard;
 
-    final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
-    final private String serverKey = "key=" + "AIzaSyChK8O1C74hBSmy_ATuIoChSymfqBCEdf8";
-    final private String contentType = "application/json";
-
-    String NOTIFICATION_TITLE;
-    String NOTIFICATION_MESSAGE;
-    String TOPIC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,34 +59,12 @@ public class MainActivity extends AppCompatActivity {
         // init views
         initViews();
 
-        btnSports.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
-                View view = inflater.inflate(R.layout.comming_soon_dialog, null);
-                builder.setView(view);
-                builder.show();
-            }
-        });
 
-        btnHealth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, BodyHealth.class));
-            }
-        });
+        // hide for users
+        btnDashboard.setClickable(false);
+        btnDashboard.setVisibility(View.GONE);
 
-        btnMyBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
-                View view = inflater.inflate(R.layout.comming_soon_dialog, null);
-                builder.setView(view);
-                builder.show();
-            }
-        });
+
 
         btnFollow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
                 View view = inflater.inflate(R.layout.follow_captin, null);
-
+                builder.setView(view);
                 ImageView inst = view.findViewById(R.id.btnInst);
                 ImageView face = view.findViewById(R.id.btnFace);
                 ImageView whats = view.findViewById(R.id.btnWhats);
@@ -148,39 +126,123 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                builder.setView(view);
+
                 builder.show();
             }
         });
 
-        btnOnline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, OnlinePrograms.class));
-            }
-        });
 
-        btnArticles.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, GeneralArticles.class));
-            }
-        });
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                mAuth = FirebaseAuth.getInstance();
+                /*mAuth = FirebaseAuth.getInstance();
                 if(mAuth.getCurrentUser() == null){
                     startActivity(new Intent(MainActivity.this, Login.class));
                 }else {
                     Intent intent = new Intent(MainActivity.this, UserProfile.class);
                     intent.putExtra("type", "other");
                     startActivity(intent);
-                }
+                }*/
+                Intent intent = new Intent(MainActivity.this, UserProfile.class);
+                intent.putExtra("type", "other");
+                startActivity(intent);
 
 
+            }
+        });
+
+
+        btnMainMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+                View view = inflater.inflate(R.layout.main_menu_dialog, null);
+                builder.setView(view);
+                LinearLayout btnSports = view.findViewById(R.id.btn_sports_train);
+                LinearLayout btnHealth = view.findViewById(R.id.btn_body_health);
+                LinearLayout btnMyBook = view.findViewById(R.id.btn_my_book);
+                LinearLayout btnOnlinebtnOnline = view.findViewById(R.id.btn_online);
+                LinearLayout btnArticlbtnOnline = view.findViewById(R.id.btn_articles);
+                LinearLayout btnFoodProg = view.findViewById(R.id.btn_food_prog);
+                LinearLayout btnWaterProg = view.findViewById(R.id.btn_water_prog);
+
+
+                btnSports.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+                        View view = inflater.inflate(R.layout.comming_soon_dialog, null);
+                        builder.setView(view);
+                        builder.show();
+                    }
+                });
+
+                btnHealth.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, BodyHealth.class));
+                        generalVars.post = "health_recipe";
+                    }
+                });
+
+                btnMyBook.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
+                        View view = inflater.inflate(R.layout.comming_soon_dialog, null);
+                        builder.setView(view);
+                        builder.show();
+                    }
+                });
+
+                btnOnlinebtnOnline.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, OnlinePrograms.class));
+                        generalVars.post = "onlineProg";
+                    }
+                });
+
+                btnArticlbtnOnline.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, GeneralArticles.class));
+                        generalVars.post = "genArticles";
+                    }
+                });
+
+
+                btnFoodProg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(MainActivity.this, FoodProgramActivity.class);
+                        i.putExtra("type","other");
+                        startActivity(i);
+                    }
+                });
+
+                btnWaterProg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, WaterProgramActivity.class));
+                    }
+                });
+
+
+                builder.show();
+
+            }
+        });
+
+        btnDashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Dashboard.class));
             }
         });
 
@@ -189,15 +251,128 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void tempFUNCT() {
+
+        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("posts");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String key = snapshot.getRef().getKey();
+                    reference.child(key).child("key").setValue(key);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        final DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference().child("body_health").child("articles");
+        final DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference().child("body_health").child("supp");
+        final DatabaseReference reference3 = FirebaseDatabase.getInstance().getReference().child("body_health").child("calories");
+        final DatabaseReference reference4 = FirebaseDatabase.getInstance().getReference().child("body_health").child("recipe");
+
+        reference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String key = snapshot.getRef().getKey();
+                    reference1.child(key).child("key").setValue(key);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        reference2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String key = snapshot.getRef().getKey();
+                    reference2.child(key).child("key").setValue(key);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        reference3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String key = snapshot.getRef().getKey();
+                    reference3.child(key).child("key").setValue(key);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        reference4.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String key = snapshot.getRef().getKey();
+                    reference4.child(key).child("key").setValue(key);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        final DatabaseReference referenceX = FirebaseDatabase.getInstance().getReference().child("articles");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String key = snapshot.getRef().getKey();
+                    referenceX.child(key).child("key").setValue(key);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
     private void initViews() {
 
-        btnSports = findViewById(R.id.btn_sports_train);
-        btnHealth = findViewById(R.id.btn_body_health);
-        btnMyBook = findViewById(R.id.btn_my_book);
+
         btnFollow = findViewById(R.id.btn_follow);
-        btnOnline = findViewById(R.id.btn_online);
-        btnArticles = findViewById(R.id.btn_articles);
         btnProfile = findViewById(R.id.fab_profile);
+        btnMainMenu = findViewById(R.id.btn_main_menu);
+        btnDashboard = findViewById(R.id.dashboard);
 
 
     }

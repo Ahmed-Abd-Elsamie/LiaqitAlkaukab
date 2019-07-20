@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".admin.ActivityAddHealth"></activity>
+        <activity android:name=".admin.Dashboard" />
         <activity android:name=".utilities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +36,12 @@
         <activity android:name=".activities.UserDataEntry" />
         <activity android:name=".activities.WaterProgramActivity" />
         <activity android:name=".activities.FoodProgramActivity" />
-        <activity android:name=".activities.AddFoodDay"></activity>
+        <activity android:name=".activities.AddFoodDay" />
+        <activity android:name=".admin.ActivityAddPost" />
+        <activity android:name=".admin.ActivityAddPostVideo" />
+        <activity android:name=".admin.ActivityAddOnlineProg" />
+        <activity android:name=".admin.ActivityAddGenArticles" />
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -62,9 +68,6 @@
         <receiver android:name=".notifications.NotificationFoodReciver" />
         <receiver android:name=".notifications.AlarmReciver" />
         <receiver android:name=".notifications.ResetAlarms" />
-
-
-
     </application>
 
 </manifest>

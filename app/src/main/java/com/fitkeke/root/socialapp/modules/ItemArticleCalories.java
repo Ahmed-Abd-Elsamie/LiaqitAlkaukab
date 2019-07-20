@@ -2,7 +2,7 @@ package com.fitkeke.root.socialapp.modules;
 
 public class ItemArticleCalories {
 
-
+    private String key;
     private String type;
     private String title;
     private String desc;
@@ -13,6 +13,14 @@ public class ItemArticleCalories {
 
     public ItemArticleCalories() {
 
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getType() {

@@ -21,7 +21,6 @@ import android.widget.Toast;
 import com.fitkeke.root.socialapp.R;
 import com.fitkeke.root.socialapp.generalVars;
 import com.fitkeke.root.socialapp.notifications.NotificationWaterReciver;
-import com.google.common.primitives.UnsignedLong;
 
 import java.util.Calendar;
 
@@ -155,11 +154,11 @@ public class WaterProgramActivity extends AppCompatActivity {
             float weight = Float.parseFloat(txtWeight.getText().toString());
             // check
             if(male == true){
-                txtResult.setText("تحتاج الي شرب " + weight / 23 + " لتر من الماء يوميا");
-                waterliters = weight / 23;
+                txtResult.setText("تحتاج الي شرب " + 0.033 * weight + " لتر من الماء يوميا");
+                waterliters = (float) (0.033 * weight);
             }else {
-                txtResult.setText("تحتاجين الي شرب " + weight / 25 + " لتر من الماء يوميا");
-                waterliters = weight / 25;
+                txtResult.setText("تحتاجين الي شرب " + 0.033 * weight + " لتر من الماء يوميا");
+                waterliters = (float) (0.033 * weight);
             }
             // save water liters
             SharedPreferences.Editor editor = getSharedPreferences("water_liters", MODE_PRIVATE).edit();

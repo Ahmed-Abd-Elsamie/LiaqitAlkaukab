@@ -31,12 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:src="@drawable/ic_settings_black_24dp"
         android:id="@+id/dashboard"
-        android:clickable="false"
-        android:visibility="gone"
-        android:contextClickable="false"
         app:fab_colorNormal="@color/colorPrimaryDark"
 
         />
@@ -55,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="bottom"
+        android:gravity="center"
         android:paddingBottom="20dp"
 
         >
@@ -72,131 +69,25 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="3dp"
-            android:id="@+id/btn_sports_train"
+            android:id="@+id/btn_main_menu"
 
             >
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/sporttrain"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-
-                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="تمارين رياضيه"
+                android:text="القائمه الرئيسيه"
                 android:fontFamily="@font/cairoblack"
                 android:textColor="#fff"
+                android:textSize="20dp"
 
                 />
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/main_buttons"
-            android:padding="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="3dp"
-            android:id="@+id/btn_body_health"
 
-            >
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/bodyhealth"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
 
-                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="صحه الجسم"
-                android:fontFamily="@font/cairoblack"
-                android:textColor="#fff"
-
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/main_buttons"
-            android:padding="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="3dp"
-            android:id="@+id/btn_my_book"
-
-            >
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/mybook"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="تحميل كتابي"
-                android:fontFamily="@font/cairoblack"
-                android:textColor="#fff"
-
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/main_buttons"
-            android:padding="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="3dp"
-            android:id="@+id/btn_online"
-
-            >
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/online"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="برنامج المتابعه اونلاين"
-                android:fontFamily="@font/cairoblack"
-                android:textColor="#fff"
-
-                />
-
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -225,40 +116,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="متابعه الكابتن"
-                android:fontFamily="@font/cairoblack"
-                android:textColor="#fff"
-
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/main_buttons"
-            android:padding="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="3dp"
-            android:id="@+id/btn_articles"
-
-            >
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/articles"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="مقالات عامه"
                 android:fontFamily="@font/cairoblack"
                 android:textColor="#fff"
 

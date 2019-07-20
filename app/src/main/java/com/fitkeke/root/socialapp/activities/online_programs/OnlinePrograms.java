@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.fitkeke.root.socialapp.R;
+import com.fitkeke.root.socialapp.generalVars;
 import com.fitkeke.root.socialapp.utilities.GetArticle;
 
 public class OnlinePrograms extends AppCompatActivity {
@@ -18,6 +19,8 @@ public class OnlinePrograms extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_online_programs);
+
+        generalVars.post = "onlineProg";
 
         initViews();
         //..........................................

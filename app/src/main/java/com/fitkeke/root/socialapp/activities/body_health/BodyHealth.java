@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.fitkeke.root.socialapp.R;
 import com.fitkeke.root.socialapp.activities.UserProfile;
+import com.fitkeke.root.socialapp.generalVars;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -123,6 +124,8 @@ public class BodyHealth extends AppCompatActivity {
             btnCalori.setTextColor(this.getResources().getColor(R.color.colorGray));
             btnCalori.setBackgroundColor(this.getResources().getColor(R.color.colorAccent));
 
+            generalVars.post = "health_recipe";
+
             //edit_post_data.flagTabs = "tab0";
         }
 
@@ -139,6 +142,8 @@ public class BodyHealth extends AppCompatActivity {
 
             btnCalori.setTextColor(this.getResources().getColor(R.color.colorGray));
             btnCalori.setBackgroundColor(this.getResources().getColor(R.color.colorAccent));
+
+            generalVars.post = "health_articles";
 
             //edit_post_data.flagTabs = "tab1";
         }
@@ -157,6 +162,8 @@ public class BodyHealth extends AppCompatActivity {
             btnCalori.setTextColor(this.getResources().getColor(R.color.colorGray));
             btnCalori.setBackgroundColor(this.getResources().getColor(R.color.colorAccent));
 
+            generalVars.post = "health_supp";
+
             //edit_post_data.flagTabs = "tab2";
         }
 
@@ -173,6 +180,8 @@ public class BodyHealth extends AppCompatActivity {
 
             btnCalori.setTextColor(this.getResources().getColor(R.color.colorAccent));
             btnCalori.setBackgroundColor(this.getResources().getColor(R.color.colorPrimaryDark));
+
+            generalVars.post = "health_calories";
 
             //edit_post_data.flagTabs = "tab3";
 

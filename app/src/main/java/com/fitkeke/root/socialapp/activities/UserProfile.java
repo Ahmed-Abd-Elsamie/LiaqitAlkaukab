@@ -141,7 +141,7 @@ public class UserProfile extends AppCompatActivity {
             }
         });
 
-        btnWater.setOnClickListener(new View.OnClickListener() {
+        /*btnWater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserProfile.this, WaterProgramActivity.class));
@@ -155,7 +155,7 @@ public class UserProfile extends AppCompatActivity {
                 i.putExtra("type","other");
                 startActivity(i);
             }
-        });
+        });*/
 
         // resetting all day data
         AlarmManager alarmManager;
@@ -212,9 +212,9 @@ public class UserProfile extends AppCompatActivity {
 
     private void initViews() {
         btnLogout = findViewById(R.id.btn_logout);
-        btnWater = findViewById(R.id.btn_water);
+        /*btnWater = findViewById(R.id.btn_water);
         btnFood = findViewById(R.id.btn_food);
-
+*/
         txtName = findViewById(R.id.profile_name);
         txtWaterNeeds = findViewById(R.id.txt_water_needs);
         /*txtAge = findViewById(R.id.txt_age);
@@ -230,7 +230,7 @@ public class UserProfile extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         // get user Info
-        getuserInfo();
+        //getuserInfo();
 
     }
 

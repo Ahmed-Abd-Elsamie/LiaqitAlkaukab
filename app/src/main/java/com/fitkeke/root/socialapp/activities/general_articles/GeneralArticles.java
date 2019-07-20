@@ -14,7 +14,10 @@ import android.widget.TextView;
 
 import com.fitkeke.root.socialapp.R;
 import com.fitkeke.root.socialapp.activities.UserProfile;
+import com.fitkeke.root.socialapp.generalVars;
 import com.fitkeke.root.socialapp.utilities.GetGeneralArticles;
+
+import java.util.LinkedList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -40,6 +43,8 @@ public class GeneralArticles extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_articles);
+
+        generalVars.post = "genArticles";
 
         // init views
         initViews();

@@ -2,14 +2,24 @@ package com.fitkeke.root.socialapp.modules;
 
 public class ItemArticle {
 
+    private String key;
     private String type;
     private String title;
     private String desc;
     private String date;
     private String postImg;
 
+
     public ItemArticle() {
 
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getType() {
@@ -44,11 +54,11 @@ public class ItemArticle {
         this.date = date;
     }
 
-    public String getImgurl() {
+    public String getPostImg() {
         return postImg;
     }
 
-    public void setImgurl(String imguel) {
-        this.postImg = imguel;
+    public void setPostImg(String postImg) {
+        this.postImg = postImg;
     }
 }

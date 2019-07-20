@@ -9,8 +9,8 @@ android {
         applicationId "com.fitkeke.root.socialapp"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [onesignal_app_id               : "c64cd17f-135f-40fb-8a0d-8e2e30d33fd9",
                                 // Project number pulled from dashboard, local value is ignored.
@@ -51,9 +51,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    //implementation files('libs/YouTubeAndroidPlayerApi.jar')
-    implementation 'com.google.apis:google-api-services-youtube:v3-rev181-1.22.0'
-
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    //implementation 'com.google.apis:google-api-services-youtube:v3-rev181-1.22.0'
+    //androidTestImplementation 'com.google.code.findbugs:jsr305:1.4.0'
     // one signal
     implementation 'com.onesignal:OneSignal:3.5.3'
 }

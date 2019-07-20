@@ -18,5 +18,13 @@
     <string name="action_share">Share</string>
     <string name="action_reply">Reply</string>
 
+    <string-array name="types">
+        <item>مقالات عامه</item>
+        <item>وصفات طعام</item>
+        <item>بطولات رياضيه</item>
+        <item>عضلات الجسم</item>
+        <item>مكملات غذائيه</item>
+    </string-array>
+
 
 </resources>

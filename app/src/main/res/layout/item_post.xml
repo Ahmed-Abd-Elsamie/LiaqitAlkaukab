@@ -35,8 +35,6 @@
                     android:id="@+id/fab_edit"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:clickable="false"
-                    android:visibility="gone"
                     app:fab_size="mini"
 
                     />
@@ -48,8 +46,6 @@
                     android:id="@+id/fab_del"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:clickable="false"
-                    android:visibility="gone"
                     app:fab_size="mini"
 
 
