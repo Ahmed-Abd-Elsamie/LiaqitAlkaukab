@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.fitkeke.root.socialapp.activities.AddFoodDay;
 import com.fitkeke.root.socialapp.activities.FoodProgramActivity;
 import com.fitkeke.root.socialapp.activities.Login;
 import com.fitkeke.root.socialapp.activities.UserProfile;
@@ -19,6 +18,7 @@ import com.fitkeke.root.socialapp.activities.WaterProgramActivity;
 import com.fitkeke.root.socialapp.activities.body_health.BodyHealth;
 import com.fitkeke.root.socialapp.activities.general_articles.GeneralArticles;
 import com.fitkeke.root.socialapp.activities.online_programs.OnlinePrograms;
+import com.fitkeke.root.socialapp.activities.sports_excersises.SportExcersiseActivity;
 import com.fitkeke.root.socialapp.admin.Dashboard;
 import com.github.clans.fab.FloatingActionButton;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -56,15 +56,17 @@ public class MainActivity extends AppCompatActivity {
         OneSignal.startInit(this).init();
         OneSignal.sendTag("all_users", "all_users");
 
+        getSupportActionBar().hide();
+
+
         // init views
         initViews();
 
 
         // hide for users
-        btnDashboard.setClickable(false);
+        /*btnDashboard.setClickable(false);
         btnDashboard.setVisibility(View.GONE);
-
-
+*/
 
         btnFollow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,11 +175,13 @@ public class MainActivity extends AppCompatActivity {
                 btnSports.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        /*AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                         LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
                         View view = inflater.inflate(R.layout.comming_soon_dialog, null);
                         builder.setView(view);
-                        builder.show();
+                        builder.show();*/
+
+                        startActivity(new Intent(MainActivity.this, SportExcersiseActivity.class));
                     }
                 });
 

@@ -214,12 +214,12 @@ public class ArticleItemAdapter extends RecyclerView.Adapter<ArticleItemAdapter.
 
             youTubePlayerView.setVisibility(View.GONE);
 
-            // gide for users
-            btnEdit.setClickable(false);
+            // hide for users
+            /*btnEdit.setClickable(false);
             btnEdit.setVisibility(View.GONE);
             btnDel.setClickable(false);
             btnDel.setVisibility(View.GONE);
-
+*/
 
 
         }

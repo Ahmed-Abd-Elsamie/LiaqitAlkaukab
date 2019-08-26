@@ -19,6 +19,8 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
 
+        getSupportActionBar().hide();
+
         final TextView txtSplash = findViewById(R.id.txt_splash);
         final Animation animation = AnimationUtils.loadAnimation(SplashScreen.this, R.anim.fade_in);
         Animation animation2 = AnimationUtils.loadAnimation(SplashScreen.this, R.anim.fade_in);

@@ -65,6 +65,7 @@ public class UserProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        getSupportActionBar().hide();
 
 
         // init views
@@ -75,7 +76,7 @@ public class UserProfile extends AppCompatActivity {
 
         // handle intent
         // getting sent intent
-        Intent intentSent = getIntent();
+        /*Intent intentSent = getIntent();
         String type = intentSent.getStringExtra("type");
         // check type
         if (type.equals("notify")){
@@ -122,7 +123,7 @@ public class UserProfile extends AppCompatActivity {
         }else {
 
         }
-
+*/
 
         // getting water levels to handle percent
         getWaterLevel();
@@ -158,16 +159,16 @@ public class UserProfile extends AppCompatActivity {
         });*/
 
         // resetting all day data
-        AlarmManager alarmManager;
+        /*AlarmManager alarmManager;
         PendingIntent pendingIntent;
         Intent intent;
 
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         intent = new Intent(UserProfile.this, ResetAlarms.class);
         pendingIntent = PendingIntent.getBroadcast(UserProfile.this, 1000, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
+*/
         //generalVars.GeneralCalendarEnd = Calendar.getInstance();
-        Calendar calendar = Calendar.getInstance();
+        /*Calendar calendar = Calendar.getInstance();
         if (generalVars.GeneralCalendarEnd == null){
             // set default value to end day at 12 PM
             calendar.set(Calendar.HOUR, 23);
@@ -176,7 +177,7 @@ public class UserProfile extends AppCompatActivity {
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
         }else {
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, generalVars.GeneralCalendarEnd.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-        }
+        }*/
 
 
 
@@ -190,9 +191,9 @@ public class UserProfile extends AppCompatActivity {
 
     private void getWaterLevel() {
         SharedPreferences prefs = getSharedPreferences("water_level", MODE_PRIVATE);
-        int totalLev = prefs.getInt("total",1);
-        int level = prefs.getInt("level", 0);
-        float percent = ((float)level / (float)totalLev) * 100;
+        float totalLev = prefs.getFloat("total",1);
+        float myLevel = prefs.getFloat("myLevel", 0);
+        float percent = (myLevel / totalLev) * 100;
         txtWaterPercent.setText(percent + " % ");
         // setting color
         if (percent > 33.33 && percent <= 66.66){

@@ -4,12 +4,16 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,32 +25,138 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.fitkeke.root.socialapp.FoodAdapter;
+import com.fitkeke.root.socialapp.MainActivity;
 import com.fitkeke.root.socialapp.R;
+import com.fitkeke.root.socialapp.adapters.AlarmAdapter;
+import com.fitkeke.root.socialapp.adapters.AlarmFoodAdapter;
+import com.fitkeke.root.socialapp.modules.Alarm;
 import com.fitkeke.root.socialapp.modules.ItemFood;
 import com.fitkeke.root.socialapp.notifications.NotificationFoodReciver;
+import com.fitkeke.root.socialapp.services.LoadAlarmsReceiver;
+import com.fitkeke.root.socialapp.services.LoadAlarmsService;
+import com.fitkeke.root.socialapp.utilities.AlarmUtils;
 import com.fitkeke.root.socialapp.utilities.DBHelper;
-import com.github.clans.fab.FloatingActionButton;
+import com.fitkeke.root.socialapp.utilities.DatabaseHelper;
+import com.fitkeke.root.socialapp.view.DividerItemDecoration;
+import com.fitkeke.root.socialapp.view.EmptyRecyclerView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class FoodProgramActivity extends AppCompatActivity {
+public class FoodProgramActivity extends AppCompatActivity implements LoadAlarmsReceiver.OnAlarmsLoadedListener {
 
-    private RecyclerView recyclerView;
+    /*private RecyclerView recyclerView;
     private FloatingActionButton btnAddFood;
     private TextView txtState;
     private DBHelper dbHelper;
     private RecyclerView.LayoutManager mLayoutManager;
+    private LoadAlarmsReceiver mReceiver;
+    private AlarmAdapter mAdapter;
 
+    private AlarmFoodAdapter foodAdapter;
+*/
+
+
+    private LoadAlarmsReceiver mReceiver;
+    private AlarmAdapter mAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_program_activity);
+        getSupportActionBar().setTitle("وجباتي");
 
-        // init views
-        initViews();
+        mReceiver = new LoadAlarmsReceiver(this);
+
+
+        final EmptyRecyclerView rv = (EmptyRecyclerView) findViewById(R.id.recycler_food);
+        mAdapter = new AlarmAdapter();
+        rv.setEmptyView(findViewById(R.id.empty_view));
+        rv.setAdapter(mAdapter);
+        rv.addItemDecoration(new DividerItemDecoration(FoodProgramActivity.this));
+        rv.setLayoutManager(new LinearLayoutManager(FoodProgramActivity.this));
+        rv.setItemAnimator(new DefaultItemAnimator());
+
+        com.github.clans.fab.FloatingActionButton fab = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.btn_add_food);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlarmUtils.checkAlarmPermissions(FoodProgramActivity.this);
+                final Intent i = new Intent(FoodProgramActivity.this, AddEditAlarmActivity.class);
+                i.putExtra("mode_extra", 2);
+                startActivity(i);
+            }
+        });
+
+
+        /*mReceiver = new LoadAlarmsReceiver(this);
+
+        final EmptyRecyclerView rv = (EmptyRecyclerView) findViewById(R.id.recycler_food);
+        //mAdapter = new AlarmAdapter();
+        //rv.setEmptyView(findViewById(R.id.empty_view));
+        /*rv.setAdapter(mAdapter);
+        rv.addItemDecoration(new DividerItemDecoration(FoodProgramActivity.this));
+        rv.setLayoutManager(new LinearLayoutManager(FoodProgramActivity.this));
+        rv.setItemAnimator(new DefaultItemAnimator());*/
+
+        /*mLayoutManager = new LinearLayoutManager(FoodProgramActivity.this);
+        rv.setHasFixedSize(true);
+        rv.setLayoutManager(mLayoutManager);
+        foodAdapter = new AlarmFoodAdapter(getAlarms(), FoodProgramActivity.this);
+        rv.setAdapter(foodAdapter);
+
+        //mAdapter = new AlarmAdapter();
+        //rv.setEmptyView(findViewById(R.id.empty_view));
+        /*rv.setAdapter(mAdapter);
+        rv.addItemDecoration(new DividerItemDecoration(FoodProgramActivity.this));
+        rv.setLayoutManager(new LinearLayoutManager(FoodProgramActivity.this));
+        rv.setItemAnimator(new DefaultItemAnimator());
+*/
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btn_add_food);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*AlarmUtils.checkAlarmPermissions(FoodProgramActivity.this);
+                final Intent i = new Intent(FoodProgramActivity.this, AddEditAlarmActivity.class);
+                i.putExtra("mode_extra", 2);
+                startActivity(i);*/
+
+                /*AlarmUtils.checkAlarmPermissions(FoodProgramActivity.this);
+                final Intent ii =
+                        AddEditAlarmActivity.buildAddEditAlarmActivityIntent(
+                                FoodProgramActivity.this, AddEditAlarmActivity.ADD_ALARM
+                        );
+                startActivity(ii);
+            }
+        });
+*/
+
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        final IntentFilter filter = new IntentFilter(LoadAlarmsService.ACTION_COMPLETE);
+        LocalBroadcastManager.getInstance(FoodProgramActivity.this).registerReceiver(mReceiver, filter);
+        LoadAlarmsService.launchLoadAlarmsService(FoodProgramActivity.this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        LocalBroadcastManager.getInstance(FoodProgramActivity.this).unregisterReceiver(mReceiver);
+    }
+
+    @Override
+    public void onAlarmsLoaded(ArrayList<Alarm> alarms) {
+        mAdapter.setAlarms(alarms);
+    }
+
+
+    // init views
+        /*initViews();
 
         dbHelper = new DBHelper(FoodProgramActivity.this);
         ArrayList<ItemFood> arrayList = dbHelper.getAllFoods();
@@ -183,18 +293,20 @@ public class FoodProgramActivity extends AppCompatActivity {
             }
         });
 
-    }
+        */
 
-    private void initViews() {
+   // }
+
+    /*private void initViews() {
         recyclerView = findViewById(R.id.recycler_food);
         btnAddFood = findViewById(R.id.btn_add_food);
         txtState = findViewById(R.id.food_state);
-    }
-
+    }*/
+/*
     @Override
     protected void onResume() {
         super.onResume();
-        ArrayList<ItemFood> arrayList = dbHelper.getAllFoods();
+        /*ArrayList<ItemFood> arrayList = dbHelper.getAllFoods();
         if (arrayList.size() > 0){
             txtState.setVisibility(View.INVISIBLE);
         }else {
@@ -206,6 +318,40 @@ public class FoodProgramActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         FoodAdapter adapter = new FoodAdapter(arrayList, FoodProgramActivity.this);
         recyclerView.setAdapter(adapter);
+*/
+    //}
 
+  /*  @Override
+    public void onStart() {
+        super.onStart();
+        /*final IntentFilter filter = new IntentFilter(LoadAlarmsService.ACTION_COMPLETE);
+        LocalBroadcastManager.getInstance(FoodProgramActivity.this).registerReceiver(mReceiver, filter);
+        LoadAlarmsService.launchLoadAlarmsService(FoodProgramActivity.this);
+*/
+    //}
+
+    /*@Override
+    public void onStop() {
+        super.onStop();
+        //LocalBroadcastManager.getInstance(FoodProgramActivity.this).unregisterReceiver(mReceiver);
     }
+
+    @Override
+    public void onAlarmsLoaded(ArrayList<Alarm> alarms) {
+        /*mAdapter.setAlarms(alarms);
+        foodAdapter = new AlarmFoodAdapter(getAlarms(), FoodProgramActivity.this);
+*/
+    //}
+
+    /*private ArrayList<Alarm> getAlarms() {
+
+        ArrayList<Alarm> alarms = DatabaseHelper.getInstance(FoodProgramActivity.this).getAlarms();
+        //AlarmAdapter adapter = new AlarmAdapter();
+        //adapter.setAlarms(alarms);
+        //recyclerView.setAdapter(adapter);
+
+        return alarms;
+    }*/
+
+
 }

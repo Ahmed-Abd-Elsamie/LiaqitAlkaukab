@@ -1,51 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<com.fitkeke.root.socialapp.view.EmptyRecyclerView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#B95B5B"
+    android:id="@+id/recycler_food"
+    android:padding="10dp"
 
     >
 
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recycler_food"
-        android:paddingTop="20dp"
-        android:paddingRight="8dp"
-        android:paddingLeft="8dp"
-        android:paddingBottom="8dp"
-
-        >
-
-
-    </android.support.v7.widget.RecyclerView>
-
-    <com.github.clans.fab.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/fab_add"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="20dp"
-        android:id="@+id/btn_add_food"
-        app:fab_colorNormal="@color/colorPrimaryDark"
-
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="لا توجد وجبات اضف البعض"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:id="@+id/food_state"
-        android:textColor="#fff"
-        android:textSize="20dp"
-
-        />
+</com.fitkeke.root.socialapp.view.EmptyRecyclerView>
 
 
 
-</RelativeLayout>
+<TextView
+    android:id="@+id/empty_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:text="@string/empty_view_text"/>
+
+<com.github.clans.fab.FloatingActionButton
+    android:id="@+id/btn_add_food"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|end"
+    android:layout_marginEnd="@dimen/fab_margin_default"
+    android:layout_marginRight="@dimen/fab_margin_default"
+    android:layout_marginBottom="@dimen/fab_margin_default"
+    android:src="@drawable/ic_alarm_white"
+    app:fabSize="auto"/>
+
+
+</android.support.design.widget.CoordinatorLayout>

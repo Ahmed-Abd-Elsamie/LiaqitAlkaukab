@@ -15,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".admin.ActivityAddHealth"></activity>
+        <activity android:name=".activities.sports_excersises.CarduActivity"></activity>
+        <activity android:name=".activities.sports_excersises.GymActivity" />
+        <activity android:name=".activities.sports_excersises.SportExcersiseActivity" />
+        <activity android:name=".admin.ActivityAddHealth" />
         <activity android:name=".admin.Dashboard" />
         <activity android:name=".utilities.SplashScreen">
             <intent-filter>
@@ -36,12 +39,10 @@
         <activity android:name=".activities.UserDataEntry" />
         <activity android:name=".activities.WaterProgramActivity" />
         <activity android:name=".activities.FoodProgramActivity" />
-        <activity android:name=".activities.AddFoodDay" />
         <activity android:name=".admin.ActivityAddPost" />
         <activity android:name=".admin.ActivityAddPostVideo" />
         <activity android:name=".admin.ActivityAddOnlineProg" />
         <activity android:name=".admin.ActivityAddGenArticles" />
-
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -63,6 +64,16 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activities.AddEditAlarmActivity"/>
+        <activity android:name=".activities.AlarmLandingPageActivity"/>
+        <activity android:name=".activities.WaterLandingPageActivity"/>
+
+        <receiver android:name=".services.AlarmReceiver"/>
+        <service android:name=".services.LoadAlarmsService"/>
+        <receiver android:name=".services.LoadAlarmsReceiver" />
+
+
 
         <receiver android:name=".notifications.NotificationWaterReciver" />
         <receiver android:name=".notifications.NotificationFoodReciver" />

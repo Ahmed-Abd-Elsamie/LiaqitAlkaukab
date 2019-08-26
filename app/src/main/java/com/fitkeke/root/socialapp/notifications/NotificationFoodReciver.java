@@ -13,7 +13,6 @@ import android.support.v4.app.NotificationCompat;
 import android.widget.Toast;
 
 import com.fitkeke.root.socialapp.R;
-import com.fitkeke.root.socialapp.activities.AddFoodDay;
 import com.fitkeke.root.socialapp.activities.FoodProgramActivity;
 import com.fitkeke.root.socialapp.activities.UserProfile;
 import com.fitkeke.root.socialapp.modules.ItemFood;

@@ -104,11 +104,11 @@ public class ArticleItemAdapterCalories extends RecyclerView.Adapter<ArticleItem
         holder.btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (generalVars.post.equals("articles")){
+                if (generalVars.post.equals("genArticles")){
                     DatabaseReference databaseRreference = FirebaseDatabase.getInstance().getReference().child("articles");
                     databaseRreference.child(articleItem.getKey()).removeValue();
                     Toast.makeText(context, "تم الحذف", Toast.LENGTH_SHORT).show();
-                }else if (generalVars.post.equals("posts")){
+                }else if (generalVars.post.equals("onlineProg")){
                     DatabaseReference databaseRreference = FirebaseDatabase.getInstance().getReference().child("posts");
                     databaseRreference.child(articleItem.getKey()).removeValue();
                     Toast.makeText(context, "تم الحذف", Toast.LENGTH_SHORT).show();
@@ -139,7 +139,7 @@ public class ArticleItemAdapterCalories extends RecyclerView.Adapter<ArticleItem
         holder.txtType.setText(articleItem.getType());
         final String videoUrl = articleItem.getVideo();
 
-        if (videoUrl.equals("default")){
+        if (videoUrl.equals("default") || videoUrl == null || videoUrl.equals("")){
             //holder.youTubePlayerView.setVisibility(View.GONE);
         }else {
             holder.youTubePlayerView.setVisibility(View.VISIBLE);
@@ -167,11 +167,8 @@ public class ArticleItemAdapterCalories extends RecyclerView.Adapter<ArticleItem
             });
         }
 
-        if (articleItem.getPostImg().equals("default")){
-            holder.imgPost.setVisibility(View.GONE);
-        }else {
-            Picasso.with(context).load(articleItem.getPostImg()).into(holder.imgPost);
-        }
+
+        Picasso.with(context).load(articleItem.getPostImg()).into(holder.imgPost);
 
         if (articleItem.getDesc().length() > 150){
             holder.txtDesc.setText(articleItem.getDesc().substring(0, 130));
@@ -249,12 +246,12 @@ public class ArticleItemAdapterCalories extends RecyclerView.Adapter<ArticleItem
             youTubePlayerView = (YouTubeThumbnailView) view.findViewById(R.id.youtubeVid);
             youTubePlayerView.setVisibility(View.VISIBLE);
 
-            // gide for users
-            btnEdit.setClickable(false);
+            // hide for users
+            /*btnEdit.setClickable(false);
             btnEdit.setVisibility(View.GONE);
             btnDel.setClickable(false);
             btnDel.setVisibility(View.GONE);
-
+*/
 
         }
 

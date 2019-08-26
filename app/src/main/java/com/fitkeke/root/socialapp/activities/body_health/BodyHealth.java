@@ -38,6 +38,7 @@ public class BodyHealth extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_health);
+        getSupportActionBar().hide();
 
         // init Views
         btnArticles = findViewById(R.id.btn_artic);

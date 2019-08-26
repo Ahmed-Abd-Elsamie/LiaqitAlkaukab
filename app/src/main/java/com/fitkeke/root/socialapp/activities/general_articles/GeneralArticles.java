@@ -43,6 +43,7 @@ public class GeneralArticles extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general_articles);
+        getSupportActionBar().hide();
 
         generalVars.post = "genArticles";
 

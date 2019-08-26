@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.fitkeke.root.socialapp.R;
 import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.android.youtube.player.YouTubeThumbnailLoader;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.squareup.picasso.Picasso;
@@ -29,6 +31,7 @@ public class PostPreview extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_preview);
+        getSupportActionBar().hide();
 
         // init views
         initViews();
@@ -39,6 +42,8 @@ public class PostPreview extends AppCompatActivity {
         String date = postIntent.getStringExtra("date");
         String title = postIntent.getStringExtra("title");
         String desc = postIntent.getStringExtra("desc");
+
+
 
         // hide video button if not exist
         if (videourl.equals("default")){
@@ -73,9 +78,11 @@ public class PostPreview extends AppCompatActivity {
             videoBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/" + videourl)));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=" + videourl)));
                 }
             });
+
+
         }
 
         // setting values

@@ -198,7 +198,7 @@ public class ActivityAddGenArticles extends AppCompatActivity {
 
         }else {
             // handle img
-            if (tempURI.equals(imgUri)){
+            if (tempURI == imgUri){
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("name", name);
                 map.put("userImg", userImg);

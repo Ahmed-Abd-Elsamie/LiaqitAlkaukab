@@ -27,4 +27,43 @@
     </string-array>
 
 
+    <!-- Main Activity/Fragment -->
+    <string name="empty_view_text">لا توجد وجبات اضف البعض!</string>
+
+    <!-- Edit Alarm Activity/Fragment -->
+    <string name="time">وقت التنبيه</string>
+    <string name="label">Label</string>
+    <string name="days">Days</string>
+    <string name="edit_alarm">تعديل التنبيه</string>
+    <string name="add_alarm">اضافه وجبه</string>
+    <string name="add_label_hint">Add a label!</string>
+    <string name="update_complete">Changes Saved</string>
+    <string name="update_failed">Update Failed</string>
+    <string name="delete_complete">Alarm Deleted</string>
+    <string name="delete_failed">Delete Failed</string>
+    <string name="delete_dialog_title">تأكيد الحذف</string>
+    <string name="delete_dialog_content">هل انت متأكد من حذف هذه الوجبه ؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+
+    <!-- Edit Alarm Menu -->
+    <string name="action_save">حفظ</string>
+    <string name="action_delete">حذف</string>
+
+    <!-- Alarm Landing Page Activity/Fragment -->
+    <string name="launch_main_activity">Launch Main Activity</string>
+    <string name="dismiss">Dismiss</string>
+
+    <!-- Days -->
+    <string name="monday">الاثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الاربعاء</string>
+    <string name="thursday">الخميس</string>
+    <string name="friday">الجمعه</string>
+    <string name="saturday">السبت</string>
+    <string name="sunday">الاحد</string>
+
+    <!-- Notification -->
+    <string name="channel_name">Simple Alarms</string>
+
 </resources>

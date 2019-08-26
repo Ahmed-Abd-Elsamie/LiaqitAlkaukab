@@ -20,12 +20,18 @@ import android.widget.Toast;
 
 import com.fitkeke.root.socialapp.R;
 import com.fitkeke.root.socialapp.generalVars;
+import com.fitkeke.root.socialapp.modules.Alarm;
 import com.fitkeke.root.socialapp.notifications.NotificationWaterReciver;
 
 import java.util.Calendar;
 
-public class WaterProgramActivity extends AppCompatActivity {
+import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
+import static android.os.Build.VERSION.SDK_INT;
+import static android.os.Build.VERSION_CODES.KITKAT;
+import static android.os.Build.VERSION_CODES.LOLLIPOP;
+import static com.fitkeke.root.socialapp.activities.AlarmLandingPageActivity.launchIntent;
 
+public class WaterProgramActivity extends AppCompatActivity {
 
     private Button btnCalc;
     private boolean male = true;
@@ -36,16 +42,16 @@ public class WaterProgramActivity extends AppCompatActivity {
     private Button btnMale;
     private Button btnFemale;
     private Button btnAlarm;
-    private float waterliters = 0;
+    private float waterLiters = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.water_program_activity);
+        getSupportActionBar().hide();
 
         // init views
         initViews();
-
 
         btnCalc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +59,6 @@ public class WaterProgramActivity extends AppCompatActivity {
                 calculateWater();
             }
         });
-
 
         btnMale.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +108,7 @@ public class WaterProgramActivity extends AppCompatActivity {
                         generalVars.GeneralCalendarEnd = calendarEnd;
 
                         // start alarm
-                        StartAlarm(calendarStart, calendarEnd);
+                        StartAlarm(calendarStart.getTimeInMillis(), calendarEnd.getTimeInMillis());
 
                     }
                 });
@@ -113,7 +118,6 @@ public class WaterProgramActivity extends AppCompatActivity {
 
             }
         });
-
 
     }
 
@@ -128,7 +132,22 @@ public class WaterProgramActivity extends AppCompatActivity {
         btnAlarm = findViewById(R.id.btn_water_alarm);
     }
 
-    private void StartAlarm(Calendar start, Calendar end) {
+    private void StartAlarm(long start, long end) {
+        long totalDay = end - start;
+        if (totalDay < 0){
+            totalDay = -1 * totalDay;
+        }
+        //get data
+        calculateWater();
+        long interval = (long) (totalDay / (waterLiters / 0.25));
+        // save data
+        SharedPreferences.Editor editor = getSharedPreferences("water_alarm_data", MODE_PRIVATE).edit();
+        editor.putLong("start", start);
+        editor.putLong("end", end);
+        editor.putLong("interval", interval);
+        editor.apply();
+
+
 
         AlarmManager alarmManager;
         PendingIntent pendingIntent;
@@ -137,14 +156,14 @@ public class WaterProgramActivity extends AppCompatActivity {
         intent = new Intent(WaterProgramActivity.this, NotificationWaterReciver.class);
         pendingIntent = PendingIntent.getBroadcast(WaterProgramActivity.this, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, start.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-
-        long totTime = start.getTimeInMillis() - end.getTimeInMillis();
-        long hr = totTime / (1000 * 60 * 60);
-        if (hr < 0){
-            hr = -1 * hr;
+        if(SDK_INT > LOLLIPOP) {
+            alarmManager.setAlarmClock(new AlarmManager.AlarmClockInfo(start, pendingIntent), pendingIntent);
+        } else if(SDK_INT > KITKAT) {
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, start, pendingIntent);
+        } else {
+            alarmManager.set(AlarmManager.RTC_WAKEUP, start, pendingIntent);
         }
-        generalVars.totalHours = hr;
+        //alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + interval, AlarmManager.INTERVAL_DAY, pendingIntent);
 
         Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
     }
@@ -155,23 +174,24 @@ public class WaterProgramActivity extends AppCompatActivity {
             // check
             if(male == true){
                 txtResult.setText("تحتاج الي شرب " + 0.033 * weight + " لتر من الماء يوميا");
-                waterliters = (float) (0.033 * weight);
+                waterLiters = (float) (0.033 * weight);
             }else {
                 txtResult.setText("تحتاجين الي شرب " + 0.033 * weight + " لتر من الماء يوميا");
-                waterliters = (float) (0.033 * weight);
+                waterLiters = (float) (0.033 * weight);
             }
             // save water liters
             SharedPreferences.Editor editor = getSharedPreferences("water_liters", MODE_PRIVATE).edit();
-            editor.putFloat("liters", waterliters);
+            editor.putFloat("liters", waterLiters);
             editor.apply();
 
             // save water level
             SharedPreferences.Editor editor2 = getSharedPreferences("water_level", MODE_PRIVATE).edit();
-            editor2.putInt("total", (int)(waterliters / 0.25));
+            editor2.putFloat("total", (float) (waterLiters / 0.25));
             editor2.apply();
 
         }else {
             Toast.makeText(WaterProgramActivity.this, "دخل وزنك", Toast.LENGTH_SHORT).show();
+            return;
         }
     }
 
@@ -196,55 +216,3 @@ public class WaterProgramActivity extends AppCompatActivity {
         }
     }
 }
-
-/*
-
-    btnAlarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // calculate water
-                calculateWater();
-
-                AlarmManager alarmManager;
-                PendingIntent pendingIntent;
-                Intent intent;
-                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                intent = new Intent(WaterProgramActivity.this, NotificationWaterReciver.class);
-                pendingIntent = PendingIntent.getBroadcast(WaterProgramActivity.this, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-
-                // check alarm state
-                // get state
-                SharedPreferences prefs = getSharedPreferences("water_alarm", MODE_PRIVATE);
-                String restoredText = prefs.getString("alarm", "off");
-                if (restoredText != null) {
-                    String data = prefs.getString("alarm", "off");
-                    if (data.equals("on")){
-                        // turn alarm off
-                        alarmManager.cancel(pendingIntent);
-                        // save state
-                        SharedPreferences.Editor editor = getSharedPreferences("water_alarm", MODE_PRIVATE).edit();
-                        editor.putString("alarm", "off");
-                        editor.apply();
-                        btnAlarm.setText("التنبيه غير مفعل تشغيل التنبيه ؟   ");
-
-                    }else if (data.equals("off")){
-                        btnAlarm.setText("التنبيه مفعل ايقاف التنبيه ؟   ");
-                        // turn alarm on
-                        // setting alarm Start alarm at specified time and repeat every 24 hours
-                        StartAlarm(alarmManager, pendingIntent);
-                        // save state
-                        SharedPreferences.Editor editor = getSharedPreferences("water_alarm", MODE_PRIVATE).edit();
-                        editor.putString("alarm", "on");
-                        editor.apply();
-
-                    }else {
-                        //btnAlarm.setText("التنبيه غير مفعل تشغيل التنبيه ؟   ");
-                    }
-                }
-
-
-            }
-        });
-
-        */
